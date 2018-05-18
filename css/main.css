@@ -1,0 +1,144 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #818181;
+}
+
+.attention {
+  position: absolute;
+  left: 10px;
+  bottom: 10px;
+  color: #fff;
+  font-weight: bold;
+  font-style: italic;
+}
+
+.wrapper {
+  margin-top: 30px;
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.calculator {
+  margin-top: 50px;
+  font-family: 'Orbitron', sans-serif;
+  background-color: #DFD8D0;
+  width: 300px;
+  height: 410px;
+  border-radius: 20px;
+  border: 2px solid #908B85;
+  box-shadow: inset -2px -4px 30px 3px #87837d, 10px 15px 50px -10px #000;
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.calc-header {
+  margin-top: 20px;
+  font-size: 13px;
+}
+
+.ui-container {
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  position: relative;
+  margin-bottom: 10px;
+}
+
+.screen {
+  background-color: #C3C2AB;
+  width: 260px;
+  height: 60px;
+  border: 2px solid #B4B39D;
+  border-radius: 4px;
+  margin: 10px;
+}
+
+.screen p {
+  margin: 0;
+  text-align: right;
+  margin-right: 5px;
+}
+
+.screen p:first-child {
+  font-size: 37px;
+  line-height: 37px;
+}
+
+.screen p:last-child {
+  color: #908B85;
+  margin-top: 3px;
+  margin-bottom: 3px;
+}
+
+.ui-container div:not(:first-child) {
+  width: 50px;
+  height: 40px;
+  background-color: #3A3A3A;
+  margin: 5px 10px;
+  border-radius: 8px;
+  line-height: 40px;
+  vertical-align: middle;
+  text-align: center;
+  font-weight: bold;
+  font-size: 22px;
+  color: #fff;
+  box-shadow: 0px 3px 0px 0px #000;
+}
+
+.ui-container div:not(:first-child):active {
+  transform: translateY(3px);
+
+  box-shadow: none;
+}
+
+.ui-container div:nth-child(2),
+.ui-container div:nth-child(3) {
+  background-color: #A72D45;
+  box-shadow: 0px 3px 0px 0px #671C2A;
+}
+
+.ui-container div:nth-last-of-type(3) {
+  height: 90px;
+  line-height: 110px;
+}
+
+.ui-container div:nth-last-of-type(2) {
+  width: 119px;
+  line-height: 40px;
+  position: absolute;
+  bottom: 0px;
+  left: 9px;
+}
+
+.ui-container div:nth-last-of-type(1) {
+  position: absolute;
+  bottom: 0px;
+  left: 148px;
+}
+
+.copyright {
+  margin-top: 40px;
+  font-family: 'Josefin Sans', sans-serif;
+  text-align: center;
+}
+
+a {
+  text-decoration: none;
+}
