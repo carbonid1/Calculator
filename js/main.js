@@ -20,7 +20,9 @@ Calculator.prototype.token = function(token) {
     this.prevTokenIsAction = true;
   } else if (token == "=") {
     this.finalNum = this.evaluate();
+    console.log(this.finalNum);
     this.currentNumber = this.finalNum;
+    console.log(this.currentNumber);
     this.expression += "=" + this.finalNum;
     if (this.currentNumber.length > 8 || this.expression.length > 20) {
       upperScreenP.textContent = "0";
@@ -89,23 +91,35 @@ Calculator.prototype.token = function(token) {
     }
     this.prevTokenIsAction = false;
   }
-}
+};
 
 Calculator.prototype.evaluate = function() {
-  return eval(this.expression);
-}
+  let numbers = (this.expression).match(/\d+/g);
+  console.log(numbers);
+  let operators = (this.expression).match(/[+*/-]/g);
+  console.log(operators);
+
+  let result = eval(`${numbers[0]} ${operators[0]} ${numbers[1]}`);
+
+  for (let i = 1; i < operators.length; i++) {
+    result = eval(`${result} ${operators[i]} ${numbers[i+1]}`);
+  }
+
+  //if (Object.is(NaN, result)) {} else
+  return String(result);
+};
 
 Calculator.prototype.findLastNumber = function() {
   let str = this.expression;
   let arr = str.match(/\d+$/);
   return arr[0];
-}
+};
 
 Calculator.prototype.findNumbersAndDots = function() {
   let str = this.expression;
   let arr = str.match(/[.0-9]/g);
   return arr.length;
-}
+};
 
 Calculator.prototype.findDotsAmount = function() {
   let str = this.currentNumber;
@@ -115,7 +129,7 @@ Calculator.prototype.findDotsAmount = function() {
   } else {
     return arr.length;
   }
-}
+};
 
 Calculator.prototype.updateScreen = function() {
   if (this.currentNumber.length > 8 || this.expression.length > 20) {
@@ -127,9 +141,9 @@ Calculator.prototype.updateScreen = function() {
     upperScreenP.textContent = this.currentNumber;
     lowerScreenP.textContent = this.expression;
   }
-}
+};
 
-let calculator = new Calculator;
+let calculator = new Calculator();
 
 let upperScreenP = document.querySelector(".screen #currentNumber");
 let lowerScreenP = document.querySelector(".screen #expression");
